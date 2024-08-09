@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    <form action="{% url 'filter-categories' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="category">Filter by Category</label>
+            <select class="form-control-sm" id="category" name="category">
+                <option value="all">All</option>
+                {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+    </form>
+    <div class="container row justify-content-around">
+    {% for listing in listings %}
+        <div class="card mb-5" style="width: 18rem;">
+            <img src="{{ listing.image }}" class="card-img-top" alt="{{ listing.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ listing.title }}</h5>
+                <p class="card-text">{{ listing.description }}</p>
+                <p class="card-text">Year: {{ listing.year }}</p>
+                <p class="card-text">Kilometres: {{ listing.kilometres }}</p>
+                <p class="card-text">Current Bid: US$ {{ listing.price }}</p>
+                <p class="card-text">Owner: {{ listing.user }}</p>
+                <p class="card-text">Category: {{ listing.category }}</p>
+                <a href="{% url 'listing' listing.id %}" class="btn btn-primary">View Listing</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

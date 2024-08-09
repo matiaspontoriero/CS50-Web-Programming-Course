@@ -1,0 +1,45 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Create new Listings</h2>
+    <div class="container">
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description">
+            <label for="year">Year</label>
+            <input type="number" min="1885" max="2025" class="form-control" id="year" name="year">
+            <label for="kilometres">Kilometres</label>
+            <input type="number" min="0" class="form-control" id="kilometres" name="kilometres">
+            <label for="status">Status</label>
+            <select class="form-control" id="status" name="status">
+                <option value="new">New</option>
+                <option value="used">Used</option>
+            </select>
+            <label for="stock">Is it stock?</label>
+            <select class="form-control" id="stock" name="stock">
+                <option value="in_stock">Yes</option>
+                <option value="out_of_stock">No</option>
+            </select>
+            <label for="warranty">Warranty years</label>
+            <input type="number" min="0" class="form-control" id="warranty" name="warranty">
+            <label for="price">Starting Bid (US$)</label>
+            <input type="number" min="0" class="form-control" id="price" name="price">
+            <label for="image">Image URL</label>
+            <input type="text" class="form-control" id="image" name="image">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" name="category">
+                {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <button type="submit" class="btn btn-primary">Create Listing</button>
+        </div>
+    </form>
+    </div>
+
+{% endblock %}
