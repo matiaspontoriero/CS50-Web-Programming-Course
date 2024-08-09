@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %} 
+{% block title %} Create New Page {% endblock %}
+{% block head %}
+{% endblock %} {% block body %} {% load static %}
+<h1>Create New Page</h1>
+<form action="{% url 'create' %}" method="post">
+	{% csrf_token %}
+    <div class="form-container">
+        <label for="title">Title:</label>
+        <br>
+        {{ form.title }}
+        <br>
+        <label for="content">Content:</label>
+        <br>{{ form.content }}
+    </div>
+    <style>
+        textarea {
+            width: 80%;
+            display: inline-block;
+            height: 300px;
+        }
+        input {
+            width: 80%;
+            display: inline-block;
+        }
+    </style>
+	<input type="hidden" name="file_name" value="entries/{{ title }}.md" />
+	<button class="btn btn-primary" type="submit">Save</button>
+</form>
+{% endblock %}

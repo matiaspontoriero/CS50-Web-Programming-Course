@@ -1,0 +1,105 @@
+body {
+	font-family: sans-serif;
+	background-color: lightgray;
+	justify-content: center;
+	align-items: center;
+	margin: 15%;
+}
+
+.logo {
+	display: block;
+	margin: 20px auto;
+	max-width: 272px;
+	height: 92px;
+}
+
+.search-form {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.search-input {
+	padding: 11px 16px;
+	width: 50%;
+	font-size: 16px;
+	border: 1px solid lightskyblue;
+	border-radius: 24px;
+	box-shadow: none;
+}
+
+.search-input:focus {
+	border-color: lightblue;
+	outline: none;
+}
+
+.search-btn,
+.feeling-lucky-btn {
+	margin-top: 32px;
+	padding: 0 16px;
+	font-size: 14px;
+	line-height: 27px;
+	color: lightgrey;
+	background-color: orange;
+	border: none;
+	border-radius: 3px;
+	box-shadow: none;
+	cursor: pointer;
+	display: inline-block;
+	height: 36px;
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+	-webkit-font-smoothing: antialiased;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: background-color 0.218s, border-color 0.218s,
+		box-shadow 0.218s;
+	transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.search-btn:hover,
+.feeling-lucky-btn:hover {
+	background-color: orange;
+	border-color: orange;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.search-btn:focus,
+.feeling-lucky-btn:focus {
+	border-color: orange;
+	box-shadow: 0 0 0 1px orange;
+	outline: none;
+}
+
+.search-btn:active,
+.feeling-lucky-btn:active {
+	background-color: orange;
+	border-color: orange;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+	outline: none;
+}
+a {
+	text-decoration: none;
+	color: gray;
+	margin-left: 5px;
+}
+.anchorContainer {
+	text-decoration: none;
+	color: gray;
+	top: 1%;
+	position: absolute;
+	right: 1%;
+}
+
+.inputs {
+	width: 80%;
+	margin: 5px;
+	display: flex;
+	justify-content: space-between;
+}

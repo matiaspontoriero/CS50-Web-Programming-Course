@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Mega search</title>
+	</head>
+	<body>
+		<div class="anchorContainer">
+			<a href="index.html">Search</a>
+			<a href="images.html">Images</a>
+		</div>
+		<div class="container">
+			<form action="https://www.google.com/search" method="GET">
+				<div>
+					<label for="exact-phrase">Exact Phrase:</label>
+					<input
+						type="text"
+						name="as_epq"
+						id="exact-phrase"
+						placeholder="Exact Phrase"
+						class="inputs"
+					/>
+				</div>
+				<div>
+					<label for="any-words">Any Words:</label>
+					<input
+						type="text"
+						name="as_oq"
+						id="any-words"
+						placeholder="Any Words"
+						class="inputs"
+					/>
+				</div>
+				<div>
+					<label for="exclude-words">Exclude Words:</label>
+					<input
+						type="text"
+						name="as_eq"
+						id="exclude-words"
+						placeholder="Exclude Words"
+						class="inputs"
+					/>
+				</div>
+				<div>
+					<label for="any-of-the-words">Any of the Words:</label>
+					<input
+						type="text"
+						name="as_oq"
+						id="any-of-the-words"
+						placeholder="Any of the Words"
+						class="inputs"
+					/>
+				</div>
+				<input type="submit" value="Search" class="search-btn" />
+				<input type="reset" value="Clear" class="search-btn" />
+				<a href="index.html"
+					><button type="button" class="search-btn">Return to Home</button></a
+				>
+			</form>
+		</div>
+	</body>
+</html>

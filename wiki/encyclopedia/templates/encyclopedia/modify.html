@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %} 
+{% block title %} Modify Page {% endblock %}
+{% block head %}
+{% endblock %} {% block body %} {% load static %}
+<h1>Modify Page</h1>
+<form action="{% url 'save' %}" method="post">
+    {% csrf_token %}
+    <div class="form-container">
+        <label for="title">Title:</label>
+        <br>
+        <input type="text" name="title" id="title" value="{{ title }}">
+        <br>
+        <label for="content">Content:</label>
+        <br>
+        <textarea name="content" id="content">{{ content }}</textarea>
+    </div>
+    <style>
+        textarea {
+            width: 80%;
+            display: inline-block;
+            height: 300px;
+        }
+        input {
+            width: 80%;
+            display: inline-block;
+        }
+    </style>
+    <input type="submit" value="edit" class="btn btn-primary">
+</form>
+{% endblock %}
