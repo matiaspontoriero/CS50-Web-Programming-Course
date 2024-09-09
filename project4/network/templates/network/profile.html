@@ -1,0 +1,44 @@
+{% extends "network/layout.html" %} {% block body %}
+<div class="mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <h5 class="card-title col-3">{{ user.username }}</h5>
+                <h5 class="card-text col-3">Followers: {{ followers }}</h5>
+                <h5 class="card-text col-6">Following: {{ following }}</h5>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    {% if posts %}
+        {% for post in posts reversed %}
+            <div class="container">
+                <div class="row mx-5 mb-3">
+                    <div class="card col-12">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.user }}</h5>
+                            <p>{{ post.content }}</p>
+                            {% if user.is_authenticated %}
+                                <button class="btn btn-primary btn-sm">
+                                    Like
+                                </button>
+                                {% if post.user == request.user %}
+                                    <a href="{% url 'edit_post' %}"><button class="btn btn-warning btn-sm">Edit</button></a>
+                                    </button></a>
+                                    <button class="btn btn-danger btn-sm">
+                                        Delete
+                                    </button>
+                                {% endif %}
+                            {% endif %}
+                            <small class="text-end d-flex justify-content-end">{{ post.timestamp }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <p>No posts found.</p>
+    {% endif %}
+</div>
+{% endblock %}

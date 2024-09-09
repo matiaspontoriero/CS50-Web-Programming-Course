@@ -1,0 +1,56 @@
+{% extends 'car_rental/layout.html' %}
+{% load static %}
+{% block title %}Car Rental{% endblock %}
+<head>
+    <link rel="stylesheet" href="{% static 'car_rental/styles.css' %}">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+{% block body %}
+<main>
+    <section class="hero justify-content-center align-items-center d-flex">
+        <div>
+            <h1 class="title pb-5" style="font-size: 4em;">Rental-50</h1>
+            <h4 class="title pb-5">Experience driving your dream car through your home or dream city.</h4>
+            <a href="#features" class="btn btn-primary">Learn more</a>
+        </div>
+    </section>
+    <main>
+        <section class="features" id="features">
+            <div class="row" {% comment %} style="cursor: not-allowed;" {% endcomment %}>
+                <div class="col-md-4">
+                    <img src="{% static 'car_rental/photos/choose-car.jpg' %}" alt="Choose Car" class="feature-icon">
+                    <h2 class="feature-title">Choose Your Car</h2>
+                    <p class="feature-description">Browse our wide selection of luxury cars and choose the one that suits your style and needs.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'car_rental/photos/book-online.jpg' %}" alt="Book Online" class="feature-icon">
+                    <h2 class="feature-title">Book Online</h2>
+                    <p class="feature-description">Easily book your dream car online with just a few clicks. Our booking process is quick and hassle-free.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'car_rental/photos/delivery.jpg' %}" alt="Delivery" class="feature-icon">
+                    <h2 class="feature-title">Doorstep Delivery</h2>
+                    <p class="feature-description">We offer convenient doorstep delivery for your rented car, saving you time and effort for no extra fees.</p>
+                </div>
+            </div>
+        </section>
+        <section class="about text-center">
+            <h2 class="about-title">About Us</h2>
+            <p class="about-description">Rental-50 is a car rental service that offers a wide selection of luxury cars for rent. We provide a convenient and hassle-free way to rent a car, allowing you to experience driving your dream car without the commitment of ownership. Our goal is to provide our customers with a premium car rental experience, offering top-quality cars, excellent customer service, and competitive rates. Whether you need a car for a special occasion, a business trip, or just for fun, Car Rental has the perfect car for you.<br><br>We also want to give even the richest people in the world the chance to drive exclusive cars, from brands like Bugatti, Pagani or Koenigsegg, & even rarer cars like the Ferrari F40 or the Lamborghini Countach. Our philosofy relies on "you only live once", so we all must get the chance to drive around on that car we saw as a child & thought "look at that 4-wheel beauty, I hope one day I will be able to drive around on one like that". Well, now might be that time.</p>
+        </section>
+        <section class="cta text-center">
+            <h2 class="cta-title">Ready to drive your dream car?</h2>
+            <p class="cta-description">Search our inventory of luxury cars and find the perfect car for your next adventure.</p>
+            <a href="{% url 'index' %}" class="btn btn-secondary">Search Now</a>
+        </section>
+    </main>
+    <footer>
+        <img src="{% static 'car_rental/photos/aventador_svj.webp' %}" alt="Car Rental" class="SVJ-image">
+        <img src="{% static 'car_rental/photos/Countach_AR.webp' %}" alt="Car Rental" class="countach_AR-image">
+        <p class="ml-5 pt-5 pl-5">&copy; 2024 Car Rental. All rights reserved.</p>
+    </footer>
+    <script src="{% static 'car_rental/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

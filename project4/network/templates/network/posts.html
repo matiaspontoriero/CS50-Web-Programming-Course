@@ -1,0 +1,32 @@
+{% extends "network/layout.html" %} {% block body %}
+<h1>All posts</h1>
+    <hr>
+    <div class="container">
+    {% if posts %}
+    {% for post in posts reversed %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <a href="{% url 'profile' post.user %}"><h5 class="card-title">{{ post.user }}</h5></a>
+            <p class="card-text">{{ post.content }}</p>
+            {% if user.is_authenticated %}
+                <button class="btn btn-primary btn-sm">
+                    Like
+                </button>
+                {% if request.user == post.user %}
+                <button class="btn btn-warning btn-sm">
+                    Edit
+                </button>
+                <button class="btn btn-danger btn-sm">
+                    Delete
+                </button>
+                {% endif %}
+            {% endif %}
+            <small class="text-end d-flex justify-content-end">{{ post.timestamp }}</small>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No posts found.</p>
+    {% endif %}
+</div>
+{% endblock %}

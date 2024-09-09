@@ -1,0 +1,14 @@
+{% extends 'car_rental/layout.html' %}
+{% block body %}
+<div class="mx-5">
+    <h1>{{ user.username }}</h1>
+    <p><b>Account created:</b> {{ user.date_joined }}</p>
+    <p><b>Last log-in:</b> {{ user.last_login }}</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'edit_profile' user.username %}" class="btn btn-secondary mb-1">Edit profile</a>
+    <br>
+    <a href="{% url 'logout' %}" class="btn btn-warning">Logout</a>
+    {% endif %}
+    <a href="{% url 'index' %}" class="btn btn-primary">Go home</a>
+</div>
+{% endblock %}

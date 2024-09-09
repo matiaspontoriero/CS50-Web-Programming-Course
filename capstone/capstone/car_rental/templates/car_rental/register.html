@@ -1,0 +1,41 @@
+{% extends "car_rental/layout.html" %}
+
+{% block body %}
+
+    <h2 class="mb-3 mx-5">Register</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group mb-3 mx-5">
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group mb-3 mx-5">
+            <input class="form-control" autofocus type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group mb-3 mx-5">
+            <input class="form-control" autofocus type="number" name="phone" placeholder="Telephone number (34 660-38-33-86)" required>
+        </div>
+        <div class="form-group mb-3 mx-5">
+            <input class="form-control" autofocus type="text" name="address" placeholder="address" required>
+        </div>
+        <div class="form-group mb-3 mx-5">
+            <input class="form-control" autofocus type="number" name="CP" placeholder="CP" required>
+        </div>
+        <div class="form-group mb-3 mx-5">
+            <input class="form-control" autofocus type="text" name="city" placeholder="City" required>
+        </div>
+        <div class="form-group mb-3 mx-5">
+            <input class="form-control" type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group mb-3 mx-5">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password" required>
+        </div>
+        <input class="btn btn-primary mb-3 mx-5" type="submit" value="Register">
+    </form>
+    <p class="mb-3 mx-5">Already have an account? <a href="{% url 'login' %}">Log In here.</a></p>
+
+{% endblock %}

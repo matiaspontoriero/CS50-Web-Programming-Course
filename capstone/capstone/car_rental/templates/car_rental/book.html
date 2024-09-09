@@ -1,0 +1,44 @@
+{% extends 'car_rental/layout.html' %}
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ car.model }}</h5>
+                    <img src="{{ car.image1.url }}" class="card-img" alt="{{ car.model }}">
+                    <p class="card-text"><b>Make & model:</b> {{ car.model }}</p>
+                    <p class="card-text"><b>Year:</b> {{ car.year }}</p>
+                    <p class="card-text"><b>Seats:</b> {{ car.seats }}</p>
+                    <p class="card-text"><b>Location:</b> {{ car.location }}</p>
+                    <p class="card-text"><b>Price:</b> {{ car.price }}€ per day</p>
+                    {% if user.is_authenticated %}
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+                    {% if car.is_available and not car.is_crashed %}
+                    <form action="{% url 'book' car.licence_plate %}" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="start_date" class="form-label">Select a date to rent this car.</label>
+                            <input type="date" class="form-control" id="start_date" name="start_date" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Book</button>
+                    </form>
+                    {% else %}
+                    <div class="alert alert-danger" role="alert">
+                        <b>Oh no! </b>We are sorry, but this car is not available for renting.
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <p>You need to be logged in to book a car.</p>
+                    <a href="{% url 'login' %}" class="text-decoration-none btn btn-sm btn-primary">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

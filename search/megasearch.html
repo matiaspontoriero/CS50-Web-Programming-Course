@@ -11,54 +11,53 @@
 			<a href="index.html">Search</a>
 			<a href="images.html">Images</a>
 		</div>
-		<div class="container">
-			<form action="https://www.google.com/search" method="GET">
-				<div>
-					<label for="exact-phrase">Exact Phrase:</label>
-					<input
-						type="text"
-						name="as_epq"
-						id="exact-phrase"
-						placeholder="Exact Phrase"
-						class="inputs"
-					/>
-				</div>
-				<div>
-					<label for="any-words">Any Words:</label>
-					<input
-						type="text"
-						name="as_oq"
-						id="any-words"
-						placeholder="Any Words"
-						class="inputs"
-					/>
-				</div>
-				<div>
-					<label for="exclude-words">Exclude Words:</label>
-					<input
-						type="text"
-						name="as_eq"
-						id="exclude-words"
-						placeholder="Exclude Words"
-						class="inputs"
-					/>
-				</div>
-				<div>
-					<label for="any-of-the-words">Any of the Words:</label>
-					<input
-						type="text"
-						name="as_oq"
-						id="any-of-the-words"
-						placeholder="Any of the Words"
-						class="inputs"
-					/>
-				</div>
-				<input type="submit" value="Search" class="search-btn" />
-				<input type="reset" value="Clear" class="search-btn" />
-				<a href="index.html"
-					><button type="button" class="search-btn">Return to Home</button></a
-				>
-			</form>
-		</div>
+		<h3 class="adv-search-title">Advanced Search</h3>
+		<form action="https://www.google.com/search" method="GET" class="mega-form">
+			<div>
+				<label for="exact-phrase">Exact Phrase:</label>
+				<input
+					type="text"
+					name="as_epq"
+					id="exact-phrase"
+					placeholder="Exact Phrase"
+					class="inputs"
+				/>
+			</div>
+			<div>
+				<label for="any-words">Any of these Words:</label>
+				<input
+					type="text"
+					name="as_oq"
+					id="any-words"
+					placeholder="Any Words"
+					class="inputs"
+				/>
+			</div>
+			<div>
+				<label for="exclude-words">Exclude Words:</label>
+				<input
+					type="text"
+					name="as_eq"
+					id="exclude-words"
+					placeholder="Exclude Words"
+					class="inputs"
+				/>
+			</div>
+			<div>
+				<label for="any-of-the-words">All of these Words:</label>
+				<input
+					type="text"
+					name="as_q"
+					id="any-of-the-words"
+					placeholder="Any of the Words"
+					class="inputs"
+				/>
+			</div>
+			<input type="submit" value="Search" class="search-btn" />
+			<input type="reset" value="Clear" class="search-btn" />
+			<a href="index.html"
+				><button type="button" class="search-btn">Return to Home</button>
+			</a>
+		</form>
 	</body>
 </html>

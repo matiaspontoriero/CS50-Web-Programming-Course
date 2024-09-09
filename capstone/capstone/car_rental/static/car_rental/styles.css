@@ -1,0 +1,109 @@
+.search-form {
+    background: rgba(0,0,0, 0.5) url("photos/huracan-city.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: calc(100vh - 56px);
+}
+
+.title {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.SVJ-image {
+    width: 40%;
+    object-fit: cover;
+    float: left;
+}
+
+.countach_AR-image {
+    width: 40%;
+    object-fit: cover;
+    float: right;
+    transform: scaleX(-1);
+}
+
+.hero {
+    background-image: url("https://i.pinimg.com/originals/73/19/18/731918f4fb8c8be161e6a2c8751bf009.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.features {
+    padding: 50px 0;
+    background-color: lightgray;
+    text-align: center;
+}
+
+.features .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.features .col-md-4 {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.features .col-md-4:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    height: 200px;
+    margin-bottom: 20px;
+}
+.feature-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+section.about, section.cta {
+    padding: 20px;
+    background-color: lightgray;
+}
+
+.about-title {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.about-description, .cta-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #666;
+}
+
+.cta-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+footer {
+    background-color: white;
+    color: black;
+}

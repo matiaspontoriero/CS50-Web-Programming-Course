@@ -1,0 +1,22 @@
+{% extends 'car_rental/layout.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'car_rental/styles.css' %}">
+{% block body %}
+    <div class="search-form">
+        <h1 class="mx-5 py-5 title">Car Rental</h1>
+        <h5 class="mb-5 mx-5 title">You want it, you got it. Search for the car that suits you the best.</h5>
+        <form action="{% url 'search' %}" method="GET" class="mx-5" id="search-form">
+            <input type="text" name="city" class="form-control" placeholder="Search for a city (leave in blank for all)" value="{{ selected_city }}">
+            <br>
+            <input type="text" name="make" class="form-control" placeholder="Search for a make (leave in blank for all)" value="{{ selected_make }}">
+            <br>
+            <input id="year" type="number" name="year" class="form-control" placeholder="Search for a specific year (leave in blank for all)" min="1960" max="2024" value="{{ selected_year }}">
+            <br>
+            <div class="input-group mb-3">
+                <input type="number" class="form-control" placeholder="Minimum price (leave in blank for all)" aria-label="min-price" id="min-price" name="min-price">
+                <input type="number" class="form-control" placeholder="Maximum price (leave in blank for all)" aria-label="max-price" id="max-price" name="max-price">
+            </div>
+            <button type="submit" class="btn btn-primary mb-5">Search</button>
+        </form>
+    </div>
+{% endblock %}
