@@ -7,7 +7,6 @@
         <div class="form-group">
             <label for="category">Filter by Category</label>
             <select class="form-control-sm" id="category" name="category">
-                <option value="all">All</option>
                 {% for category in categories %}
                     <option value="{{ category }}">{{ category }}</option>
                 {% endfor %}

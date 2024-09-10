@@ -212,16 +212,3 @@ def close_listing(request, id):
     listing.save()
     return HttpResponseRedirect(reverse("listing", args=(id,)))
 
-def categories(request):
-    categories = Category.objects.all()
-    return render(request, "auctions/categories.html", {
-        "categories": categories
-    })
-
-def category(request, category):
-    category = Category.objects.get(category=category)
-    active_listings = Listing.objects.filter(category=category, active=True)
-    return render(request, "auctions/category.html", {
-        "category": category,
-        "listings": active_listings
-    })
