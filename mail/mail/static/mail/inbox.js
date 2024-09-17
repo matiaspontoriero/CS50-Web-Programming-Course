@@ -150,7 +150,8 @@ function send_email(event) {
 			console.log(result);
 		});
 }
-
+/* This code is for my mails to appear on gray if it was read, it is commented here just for debugging */
+/* (I had problems finding out where it had to go for it to work) */
 /* if (!email.read) {
 	fetch(`/emails/${id}`, {
 		method: "PUT",

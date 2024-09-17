@@ -6,9 +6,10 @@ from .models import Entry
 import markdown
 import random
 
-class NewEntryForm(forms.Form):
+class NewEntryForm(forms.Form): 
     title = forms.CharField(label="Title")
     content = forms.CharField(widget=forms.Textarea, label="Content")
+    """ this class was with the help of another student, by helping me understand how to create new entries with a class """
 
 def markdown_to_html(title):
     content = util.get_entry(title)

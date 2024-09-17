@@ -1,0 +1,69 @@
+{% extends "network/layout.html" %} {% block body %}
+<h1>Following posts</h1>
+{% if user.is_authenticated %}
+    <hr>
+    <div class="container">
+        {% if posts %}
+        {% for post in posts %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <a href="{% url 'profile' post.user %}">
+                    <h5 class="card-title">{{ post.user }}</h5>
+                </a>
+                <p class="card-text">{{ post.content }}</p>
+                {% if user.is_authenticated %}
+                {% if post.id in liked_posts %}
+                <button class="btn btn-danger btn-sm like-button" data-post-id="{{ post.id }}">
+                    Unlike
+                </button>
+                {% else %}
+                <button class="btn btn-primary btn-sm like-button" data-post-id="{{ post.id }}">
+                    Like
+                </button>
+                {% endif %}
+                <small class="like-count">{{ post.total_likes }} Likes</small>
+                {% endif %}
+                <small class="text-end d-flex justify-content-end">{{ post.timestamp }}</small>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No posts exist for your the users you are following.</p>
+        {% endif %}
+    </div>
+    <script>
+        const likeButtons = document.querySelectorAll('.like-button');
+        likeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const postId = this.getAttribute('data-post-id');
+                const likeButton = this;
+                const url = `/like/${postId}/`;
+                
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (data.liked) {
+                            likeButton.textContent = 'Unlike ' + data.total_likes;
+                            likeButton.classList.remove('btn-primary');
+                            likeButton.classList.add('btn-danger');
+                        } else {
+                            likeButton.textContent = 'Like ' + data.total_likes;
+                            likeButton.classList.remove('btn-danger');
+                            likeButton.classList.add('btn-primary');
+                        }
+                    } else {
+                        alert(data.error);
+                    }
+                });
+            });
+        });
+    </script>
+{% endif %}
+{% endblock %}
